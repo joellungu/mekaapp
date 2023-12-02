@@ -160,7 +160,7 @@ class Bienvenue extends GetView<AppController> {
                 icon: const Icon(
                   CupertinoIcons.square_fill_line_vertical_square,
                   size: 45,
-                  color: Colors.black,
+                  //color: Colors.black,
                 ),
               ),
             ),
@@ -236,6 +236,7 @@ class Bienvenue extends GetView<AppController> {
                 children: List.generate(6, (index) {
                   //
                   return InkWell(
+                    splashColor: Colors.blue.shade100.withOpacity(0.5),
                     onTap: () {
                       //
                       Get.to(Details({
@@ -243,7 +244,7 @@ class Bienvenue extends GetView<AppController> {
                       }));
                     },
                     child: Container(
-                      margin: EdgeInsets.all(5),
+                      margin: const EdgeInsets.all(5),
                       height: Get.size.height / 5,
                       child: Stack(
                         children: [
@@ -368,7 +369,7 @@ class Bienvenue extends GetView<AppController> {
                                                     Text(
                                                       "Prix : ",
                                                       style: TextStyle(
-                                                        color: Colors.black,
+                                                        color: Colors.grey,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                         fontSize: 15,
@@ -377,8 +378,8 @@ class Bienvenue extends GetView<AppController> {
                                                     Text(
                                                       " 30000 Fc ",
                                                       style: TextStyle(
-                                                        color:
-                                                            Colors.red.shade900,
+                                                        color: Colors
+                                                            .blue.shade900,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                         fontSize: 15,

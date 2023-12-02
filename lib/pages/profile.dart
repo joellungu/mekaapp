@@ -21,47 +21,18 @@ class Profile extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-                "Cote",
+                "Profile",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow.shade700,
-                    size: 15,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow.shade700,
-                    size: 15,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow.shade700,
-                    size: 15,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow.shade700,
-                    size: 15,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow.shade700,
-                    size: 15,
-                  ),
-                ],
-              ),
+              //trailing: Icon(Icons.person),
             ),
             ListTile(
               title: Text(
-                "Capacités",
+                "Commandes",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -69,11 +40,16 @@ class Profile extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                  "Maquillage, Coiffure homme & dame, Manicure, Pédicure, Meche, Cabelo, tissage, Barbe"),
+                "Commande en cours ...",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                ),
+              ),
             ),
             ListTile(
               title: Text(
-                "Catalogue",
+                "Favorits",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -81,19 +57,31 @@ class Profile extends StatelessWidget {
                 ),
               ),
               subtitle: Text("Voir ses realisations"),
-              trailing: Icon(Icons.photo_camera),
+              //trailing: Icon(Icons.favorite),
             ),
             ListTile(
               title: Text(
-                "Distance",
+                "Condition d'utilisations",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Text("À 5 min de vous"),
-              trailing: Icon(Icons.arrow_forward_ios),
+              //subtitle: Text("À 5 min de vous"),
+              //trailing: Icon(Icons.copyright),
+            ),
+            ListTile(
+              title: Text(
+                "À propos",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: Text("Mission & objectif"),
+              //trailing: Icon(Icons.text_decrease),
             ),
           ],
         ),

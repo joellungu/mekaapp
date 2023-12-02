@@ -9,6 +9,12 @@ class Details extends StatelessWidget {
   Map cat;
   Details(this.cat);
   //
+  List services = [
+    {"nom": "Maquillage", "prix": "3000", "devise": "CDF"},
+    {"nom": "Manicure", "prix": "5000", "devise": "CDF"},
+    {"nom": "Pédicure", "prix": "7000", "devise": "CDF"},
+  ];
+  //
   @override
   Widget build(BuildContext context) {
     //
@@ -29,7 +35,7 @@ class Details extends StatelessWidget {
                 textAlign: TextAlign.left,
                 text: TextSpan(
                   style: TextStyle(
-                    color: Colors.black,
+                    //color: Colors.black,
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
@@ -38,7 +44,7 @@ class Details extends StatelessWidget {
                     TextSpan(
                       text: "Macquilleuse",
                       style: TextStyle(
-                        color: Colors.black,
+                        //color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                       ),
@@ -117,14 +123,15 @@ class Details extends StatelessWidget {
                   children: [
                     const ListTile(
                       title: Text(
-                        "Alice Masani",
+                        "Devise",
                         style: TextStyle(
-                          color: Colors.black,
+                          //color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      subtitle: Text("Macquilleuse"),
+                      subtitle: Text(
+                          "Le travaille bien fait c'est ce qui me passionne"),
                       //trailing: Icon(CupertinoIcons.person),
                     ),
                     ListTile(
@@ -134,7 +141,7 @@ class Details extends StatelessWidget {
                       title: const Text(
                         "Note",
                         style: TextStyle(
-                          color: Colors.black,
+                          //color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -178,7 +185,7 @@ class Details extends StatelessWidget {
                       title: Text(
                         "Capacités",
                         style: TextStyle(
-                          color: Colors.black,
+                          //color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -194,7 +201,7 @@ class Details extends StatelessWidget {
                       title: const Text(
                         "Catalogue",
                         style: TextStyle(
-                          color: Colors.black,
+                          //color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -214,7 +221,7 @@ class Details extends StatelessWidget {
                       title: Text(
                         "Distance",
                         style: TextStyle(
-                          color: Colors.black,
+                          //color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -222,37 +229,78 @@ class Details extends StatelessWidget {
                       subtitle: Text("À 5 min de vous"),
                       trailing: Icon(Icons.location_on),
                     ),
-                    ListTile(
-                      title: Text(
-                        "Prix",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Services ",
+                              style: TextStyle(
+                                color: Colors.teal.shade700,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                height: 10,
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                                width: double.maxFinite,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      subtitle: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "30000 Fc ",
-                            style: TextStyle(
-                              color: Colors.red.shade900,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: List.generate(services.length, (index) {
+                        Map s = services[index];
+                        return ListTile(
+                          title: Text(
+                            "${s['nom']}",
+                            style: const TextStyle(
+                              //color: Colors.black,
+                              fontStyle: FontStyle.italic,
+                              fontSize: 20,
+                              fontWeight: FontWeight.normal,
                             ),
                           ),
-                          Text(
-                            "(multi services) ",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 15,
-                            ),
-                          )
-                        ],
-                      ),
-                      trailing: Icon(Icons.fact_check_outlined),
+                          subtitle: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${s['prix']} ",
+                                style: TextStyle(
+                                  color: Colors.blue.shade900,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              Text(
+                                "${s['devise']}",
+                                style: TextStyle(
+                                  color: Colors.blue.shade900,
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 15,
+                                ),
+                              )
+                            ],
+                          ),
+                          //trailing: Icon(Icons.fact_check_outlined),
+                        );
+                      }),
                     ),
                     ElevatedButton(
                       onPressed: () {
@@ -267,12 +315,30 @@ class Details extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: Text(
-                        "Appeler maintenant",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.black,
+                      child: Container(
+                        height: 70,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Appeler maintenant",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 20,
+                                color: Colors.black,
+                              ),
+                            ),
+                            Text(
+                              "15000 CDF",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
                         ),
                       ),
                     ),

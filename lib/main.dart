@@ -4,6 +4,7 @@ import 'package:mekaapp/pages/app_controller.dart';
 
 import 'pages/accueil.dart';
 import 'pages/bienvenue.dart';
+import 'utils/theme_class.dart';
 
 void main() async {
   //
@@ -20,11 +21,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Make°App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.light(),
-        primaryColor: Colors.white,
-        useMaterial3: true,
-      ),
+      themeMode: ThemeMode.system,
+      theme: ThemeClass
+          .lightTheme, // applies this theme if the device theme is light mode
+      darkTheme: ThemeClass
+          .darkTheme, // applies this theme if the device theme is dark mode
+
       home: Bienvenue(),
     );
   }
